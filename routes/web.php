@@ -22,3 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/redirect',[HomeController::class,'redirect']);
+// frontend route pages
+Route::get('/home',[HomeController::class,'index'])->name('frontend.index');
+Route::get('/about',[HomeController::class,'about'])->name('frontend.about');
+Route::get('/products',[HomeController::class,'products'])->name('frontend.products');
+Route::get('/contact',[HomeController::class,'contact'])->name('frontend.contact');

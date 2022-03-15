@@ -16,4 +16,16 @@ class HomeController extends Controller
             return view('dashboard');
         }
     }
+    public function index(){
+        return view('user.home');
+    }
+    public function about(){
+        return view('user.about');
+    }
+    public function products(){
+        return view('user.products');
+    }
+    public function contact(){
+        return view('user.contact');
+    }
 }
