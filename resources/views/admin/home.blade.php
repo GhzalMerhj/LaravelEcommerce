@@ -1,3 +1,7 @@
-<x-app-layout>
-    
-</x-app-layout>
+
+@extends('admin.master')
+@section('content')
+ <h1> hhh </h1>
+@endsection
+
+
