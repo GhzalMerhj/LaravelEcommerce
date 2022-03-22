@@ -1,64 +1,87 @@
 
 @extends('admin.master')
 @section('content')
-<div class="row">
-    <h1  class="col-lg-12" > products </h1>
-</div>
+@push('css')
+   <style type="text/css">
+    .message-div{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        width: 50%;
+    }
+    .message-div button  {
+    background-color: #fc424a;
+    border: 1px solid #fc424a;
+    }
+   </style> 
+@endpush
+<div class="container">
+    <div class="row">
+        {{--  <h1  class="col-lg-12" >  --}}
+            <div class="col-md-12  text-right">
+                    {{--  style="float: right"  --}}
+             <a class="btn btn-primary" href="{{ route('backend.products.create') }}" > add product </a>
+            </div>
 
-
- <div class="row">
-  <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Basic Table</h4>
-        <p class="card-description"> Add class <code>.table</code>
-        </p>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Profile</th>
-                <th>VatNo.</th>
-                <th>Created</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Jacob</td>
-                <td>53275531</td>
-                <td>12 May 2017</td>
-                <td><label class="badge badge-danger">Pending</label></td>
-              </tr>
-              <tr>
-                <td>Messsy</td>
-                <td>53275532</td>
-                <td>15 May 2017</td>
-                <td><label class="badge badge-warning">In progress</label></td>
-              </tr>
-              <tr>
-                <td>John</td>
-                <td>53275533</td>
-                <td>14 May 2017</td>
-                <td><label class="badge badge-info">Fixed</label></td>
-              </tr>
-              <tr>
-                <td>Peter</td>
-                <td>53275534</td>
-                <td>16 May 2017</td>
-                <td><label class="badge badge-success">Completed</label></td>
-              </tr>
-              <tr>
-                <td>Dave</td>
-                <td>53275535</td>
-                <td>20 May 2017</td>
-                <td><label class="badge badge-warning">In progress</label></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        {{--  </h1>  --}}
     </div>
-   </div>
+    @if(session()->has('message'))
+    <div class="alert alert-success message-div">
+         {{--  <button type="button" class="close" data-dismiss="alert">x</button>  --}}
+    {{ session()->get('message') }}
+    </div>
+   
+    @endif
+
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Products </h4>
+              </p>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Price.</th>
+                      <th>Quantity</th>
+                      <th>Description</th>
+                      <th>Image</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     @foreach($products as $product)
+                     <tr>
+                        <td>{{ $product->title }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->quantity }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>
+                            @if($product->image)
+                            <img src="{{  asset('images/products/'.$product->image) }}">
+                            @else
+                             ---
+                            @endif
+                        </td>
+                       <td>
+                           <a class="btn btn-danger">delete</a>
+                           <a class="btn btn-success">edit</a>
+                       </td>
+                      </tr>
+                     @endforeach 
+                  
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+         </div>
+      </div>
+
 </div>
+
+
+
 @endsection

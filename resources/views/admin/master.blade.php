@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('backendTemp/assets/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('backendTemp/assets/images/favicon.png') }}" />
+    @stack('css')
   </head>
   <body>
     <div class="container-scroller">

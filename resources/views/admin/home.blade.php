@@ -1,7 +1,9 @@
-
 @extends('admin.master')
 @section('content')
- <h1> hhh </h1>
+<div class="container">
+    <h1> Main Page  </h1>
+</div>
+
 @endsection
 
 
