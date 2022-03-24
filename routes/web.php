@@ -24,3 +24,4 @@ Route::get('/',[HomeController::class,'index'])->name('frontend.index');
 Route::get('/about',[HomeController::class,'about'])->name('frontend.about');
 Route::get('/products',[HomeController::class,'products'])->name('frontend.products');
 Route::get('/contact',[HomeController::class,'contact'])->name('frontend.contact');
+Route::get('/search',[HomeController::class,'search'])->name('frontend.search');

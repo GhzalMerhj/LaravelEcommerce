@@ -8,26 +8,29 @@
         margin-top: 10px;
         width: 50%;
     }
-    .message-div button  {
-    background-color: #fc424a;
-    border: 1px solid #fc424a;
+  
+    .product-image{
+        width: 50px !important;
+        height: 50px !important;
     }
    </style> 
 @endpush
 <div class="container">
     <div class="row">
         {{--  <h1  class="col-lg-12" >  --}}
-            <div class="col-md-12  text-right">
+            <div class="col-md-12 ">
                     {{--  style="float: right"  --}}
-             <a class="btn btn-primary" href="{{ route('backend.products.create') }}" > add product </a>
+             <a class="btn btn-primary" 
+             href="{{ route('backend.products.create') }}" 
+             style="margin: 10px"> add product </a>
             </div>
 
         {{--  </h1>  --}}
     </div>
     @if(session()->has('message'))
     <div class="alert alert-success message-div">
-         {{--  <button type="button" class="close" data-dismiss="alert">x</button>  --}}
-    {{ session()->get('message') }}
+      <button type="button" class="btn btn-danger close" data-bs-dismiss="alert">x</button> 
+         {{ session()->get('message') }}
     </div>
    
     @endif
@@ -59,14 +62,19 @@
                         <td>{{ $product->description }}</td>
                         <td>
                             @if($product->image)
-                            <img src="{{  asset('images/products/'.$product->image) }}">
+                            <img class="product-image"
+                             src="{{  asset('images/products/'.$product->image) }}">
                             @else
                              ---
                             @endif
                         </td>
                        <td>
-                           <a class="btn btn-danger">delete</a>
-                           <a class="btn btn-success">edit</a>
+                           <a class="btn btn-success" href="{{ route('backend.products.edit',$product->id) }}">edit</a>
+                           
+                           <a class="btn btn-danger" data-bs-toggle="modal" 
+                           data-bs-target="#ModalDelete{{$product->id}}">
+                               delete</a>
+                           @include('admin.products.delete')  
                        </td>
                       </tr>
                      @endforeach 
@@ -85,3 +93,4 @@
 
 
 @endsection
+{{--  {{ route('backend.products.delete',$product->id) }}  --}}

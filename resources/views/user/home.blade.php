@@ -34,27 +34,36 @@
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Latest Products</h2>
-              <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
+              <a href="{{ route('frontend.products') }}">view all products <i class="fa fa-angle-right"></i></a>
+
+              <form action="{{ route('frontend.search') }}" method="get" class="form-inline" style="float: right ; padding:10px">
+                @csrf
+                <input class="form-control" type="search" name="search" placeholder="Search">
+                 <input type="submit" class="btn btn-success" value="Search">
+              </form>
             </div>
           </div>
           @foreach($products as $product)
         
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="{{  asset('images/products/'.$product->image)  }}" alt="">
-            </a>
+          <div class="col-md-4" style="overflow: hidden">
+            <div class="product-item" >
+              <a href="#" >
+                  <img class="img-responsive"
+                src="{{  asset('images/products/'.$product->image)  }}" alt="">
+               </a>
               <div class="down-content">
                 <a href="#"><h4>{{ $product->title }}</h4></a>
                 <h6>${{ $product->price }}</h6>
                 <p> {{ $product->description }}</p>
-                <ul class="stars">
+                {{--  <ul class="stars">
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
                 </ul>
-                <span>Reviews (24)</span>
+                <span>Reviews (24)</span>  --}}
+                <a href="#" class="btn btn-primary" >Add To Cart</a>
               </div>
             </div>
           </div>

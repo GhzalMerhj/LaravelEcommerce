@@ -37,4 +37,9 @@ class HomeController extends Controller
     public function contact(){
         return view('user.contact');
     }
+    public function search(Request $request){
+        $search = $request->search;
+        $products = Product::where('title','like','%'.$search.'%')->get();
+        return view('user.home',compact(['products',$products]));
+    }
 }

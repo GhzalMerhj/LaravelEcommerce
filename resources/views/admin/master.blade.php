@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{{ asset('backendTemp/assets/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('backendTemp/assets/images/favicon.png') }}" />
+    
+    <link rel="stylesheet" href="{{ asset('backendTemp/assets/css/bootstrap.min.css') }}" />
+    <script src="{{ asset('js/app.js') }}"></script>
     @stack('css')
   </head>
   <body>
@@ -34,6 +37,10 @@
      @yield('content')
      </div>
     </div>
+     {{--  start including jquery and bootstrap   --}}
+     <script src="{{ asset('backendTemp/assets/js/jquery-3.6.0.min.js') }}" ></script>
+     <script src="{{ asset('backendTemp/assets/js/bootstrap.min.js') }}" ></script>
+     {{--  end including jquery and bootstrap   --}}
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{{ asset('backendTemp/assets/vendors/js/vendor.bundle.base.js') }}"></script>
@@ -45,6 +52,9 @@
     <script src="{{ asset('backendTemp/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
     <script src="{{ asset('backendTemp/assets/vendors/owl-carousel-2/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('backendTemp/assets/js/jquery.cookie.js') }}" type="text/javascript"></script>
+   
+    
+    
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="{{ asset('backendTemp/assets/js/off-canvas.js') }}"></script>
