@@ -2,11 +2,9 @@
 @extends('admin.master')
 @section('content')
 @push('css')
-<style type="text/css"> 
-    input{
-       color: white
-    }
+<style type="text/css">
    
+
    </style>
 @endpush
 
@@ -43,7 +41,7 @@
           <div class="form-group row">
             <label for="description" class="col-sm-3 col-form-label">Description</label>
             <div class="col-sm-9">
-              <textarea  class="form-control" id="description" rows="10" 
+              <textarea  class="form-control" id="description" rows="10"
               placeholder="Product Description" name="description" style="color:white">
              {{ $product->description }}
               </textarea>
@@ -61,10 +59,10 @@
             <label for="image" class="col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <input type="file" class="form-control" id="image" name="image">
-              
+
             </div>
           </div>
-        
+
           <button type="submit" class="btn btn-primary me-2">Submit</button>
           <button class="btn btn-dark">Cancel</button>
         </form>

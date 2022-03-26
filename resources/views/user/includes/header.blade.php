@@ -31,10 +31,17 @@
 
                 @if (Route::has('login'))
                 @auth
-
-                  <li class="nav-item">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('frontend.myCart') }}"> My Cart </a>
                   </li>
+                  
+                <li class="AuthMenu">
+                    <x-app-layout >
+
+                    </x-app-layout>
+                </li>
+
+
                 @else
                  <li class="nav-item">
                      <a href="{{ route('login') }}"

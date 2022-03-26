@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SebastianBergmann\Environment\Console;
 
 class HomeController extends Controller
 {
@@ -14,19 +15,19 @@ class HomeController extends Controller
             return view('admin.home');
         }
         else{
-            return view('user.home');
+            $products = Product::all();
+            return view('user.home',compact(['products',$products]));
         }
     }
     public function index(){
-        // if(Auth::id())
-        // {
-        //     return redirect('redirect');
-        // }
-        // else{
+         if(Auth::id())
+         {
+            return redirect('redirect');
+         }
+        else{
              $products = Product::all();
              return view('user.home',compact(['products',$products]));
-        // }
-       
+        }
     }
     public function about(){
         return view('user.about');
@@ -41,5 +42,12 @@ class HomeController extends Controller
         $search = $request->search;
         $products = Product::where('title','like','%'.$search.'%')->get();
         return view('user.home',compact(['products',$products]));
+    }
+    public function addToCart(){
+
+    }
+    public function myCart(){
+        $usertype = Auth::user()->usertype;
+        return var_dump($usertype );
     }
 }

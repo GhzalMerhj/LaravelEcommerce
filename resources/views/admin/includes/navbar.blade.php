@@ -23,7 +23,9 @@
       </li>
 
       <li class="nav-item dropdown">
-
+        <x-app-layout>
+            
+        </x-app-layout>
       </li>
     </ul>
 

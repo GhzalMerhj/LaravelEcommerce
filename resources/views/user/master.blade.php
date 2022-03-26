@@ -11,14 +11,17 @@
 
     <title> Ecommerce Website </title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ asset('frontendTemp/vendor/bootstrap/css/bootstrap.min.css')  }}" rel="stylesheet">
+
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('frontendTemp/assets/css/fontawesome.css') }} ">
     <link rel="stylesheet" href="{{ asset('frontendTemp/assets/css/templatemo-sixteen.css') }} ">
     <link rel="stylesheet" href="{{ asset('frontendTemp/assets/css/owl.css') }}">
 
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('frontendTemp/vendor/bootstrap/css/bootstrap.min.css')  }}"
+    rel="stylesheet">
+    @stack('frontcss')
   </head>
 
   <body>
@@ -75,7 +78,7 @@
       }
     </script>
 
-    @stack('js')
+    @stack('frontjs')
 
   </body>
 

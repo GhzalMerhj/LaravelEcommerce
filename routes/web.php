@@ -21,7 +21,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/redirect',[HomeController::class,'redirect']);
 // frontend route pages
 Route::get('/',[HomeController::class,'index'])->name('frontend.index');
+
 Route::get('/about',[HomeController::class,'about'])->name('frontend.about');
 Route::get('/products',[HomeController::class,'products'])->name('frontend.products');
 Route::get('/contact',[HomeController::class,'contact'])->name('frontend.contact');
 Route::get('/search',[HomeController::class,'search'])->name('frontend.search');
+
+Route::post('/addToCart/{id}',[HomeController::class,'addToCart'])->name('frontend.addToCart');
+
+Route::get('/myCart',[HomeController::class,'myCart'])->name('frontend.myCart');
+

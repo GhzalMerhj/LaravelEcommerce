@@ -1,5 +1,15 @@
 @extends('user.master')
+@push('frontcss')
+<style type="text/css">
+    input[name="search-btn"]{
+        background: seagreen
+    }
+    input[name="add-cart-btn"]{
+        background: #007bff
+    }
+</style>
 
+@endpush
 @section('content')
 <div class="right_col" role="main">
 
@@ -38,13 +48,13 @@
 
               <form action="{{ route('frontend.search') }}" method="get" class="form-inline" style="float: right ; padding:10px">
                 @csrf
-                <input class="form-control" type="search" name="search" placeholder="Search">
-                 <input type="submit" class="btn btn-success" value="Search">
+                 <input class="form-control" type="search" name="search" placeholder="Search">
+                 <input type="submit" class="btn btn-success" value="Search" name="search-btn">
               </form>
             </div>
           </div>
           @foreach($products as $product)
-        
+
           <div class="col-md-4" style="overflow: hidden">
             <div class="product-item" >
               <a href="#" >
@@ -63,11 +73,19 @@
                   <li><i class="fa fa-star"></i></li>
                 </ul>
                 <span>Reviews (24)</span>  --}}
-                <a href="#" class="btn btn-primary" >Add To Cart</a>
+                <form action="{{ route('frontend.addToCart',$product->id) }}" method="post" >
+                    @csrf
+                  <input type="number" value="1" min="1" name="quantity" class="form-control"
+
+                  style="width: 25%; margin:10px">
+
+                  <input type="submit" class="btn btn-primary" value="Add To Cart" name="add-cart-btn">
+                </form>
+
               </div>
             </div>
           </div>
-          @endforeach 
+          @endforeach
         </div>
       </div>
     </div>
