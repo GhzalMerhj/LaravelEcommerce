@@ -1,5 +1,4 @@
-<!-- Header -->
-    <header class="">
+ <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="{{ route('frontend.index') }}">
@@ -32,9 +31,12 @@
                 @if (Route::has('login'))
                 @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('frontend.myCart') }}"> My Cart </a>
+                    <a class="nav-link" href="{{ route('frontend.viewCart') }}">
+                        <i class="fa fa-shopping-cart"></i>
+                        Cart {{ $item_nums }}
+                    </a>
                   </li>
-                  
+
                 <li class="AuthMenu">
                     <x-app-layout >
 

@@ -29,5 +29,9 @@ Route::get('/search',[HomeController::class,'search'])->name('frontend.search');
 
 Route::post('/addToCart/{id}',[HomeController::class,'addToCart'])->name('frontend.addToCart');
 
-Route::get('/myCart',[HomeController::class,'myCart'])->name('frontend.myCart');
+Route::get('/viewCart',[HomeController::class,'viewCart'])->name('frontend.viewCart');
+Route::get('/deleteCartItem/{id}',[HomeController::class,'deleteCartItem'])->name('frontend.deleteCartItem');
+Route::get('/confirmOrder',[HomeController::class,'confirmOrder'])->name('frontend.confirmOrder');
 
+// these route are for test only
+Route::get('/test',[HomeController::class,'testTest']);

@@ -62,7 +62,7 @@
                 src="{{  asset('images/products/'.$product->image)  }}" alt="">
                </a>
               <div class="down-content">
-                <a href="#"><h4>{{ $product->title }}</h4></a>
+                <a><h4>{{ $product->title }}</h4></a>
                 <h6>${{ $product->price }}</h6>
                 <p> {{ $product->description }}</p>
                 {{--  <ul class="stars">
@@ -73,14 +73,25 @@
                   <li><i class="fa fa-star"></i></li>
                 </ul>
                 <span>Reviews (24)</span>  --}}
+
+
                 <form action="{{ route('frontend.addToCart',$product->id) }}" method="post" >
                     @csrf
                   <input type="number" value="1" min="1" name="quantity" class="form-control"
-
                   style="width: 25%; margin:10px">
-
-                  <input type="submit" class="btn btn-primary" value="Add To Cart" name="add-cart-btn">
+                  @if($product->inUserCart())
+                  <a class="btn btn-success" style="
+                   background-color:#f33f3f !important;
+                   border:none !important;
+                   color:white;
+                   " href="{{ route('frontend.viewCart') }}">
+                    Product In Cart  </a>
+                    @else
+                  <input type="submit" class="btn btn-primary"
+                  value="Add To Cart" name="add-cart-btn">
+                  @endif
                 </form>
+
 
               </div>
             </div>
@@ -106,7 +117,7 @@
             </a> is free to use for your business websites. However,
              you have no permission to redistribute the downloadable ZIP file
              on any template collection website. <a rel="nofollow"
-              href="https://templatemo.com/contact">Contact us</a> for more info.</p>
+              href="">Contact us</a> for more info.</p>
               <ul class="featured-list">
                 <li><a href="#">Lorem ipsum dolor sit amet</a></li>
                 <li><a href="#">Consectetur an adipisicing elit</a></li>

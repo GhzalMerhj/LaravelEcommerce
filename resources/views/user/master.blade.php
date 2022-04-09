@@ -37,15 +37,11 @@
     <!-- ***** Preloader End ***** -->
     {{--  start including the  Header blade file  --}}
     @include('user/includes/header')
+
     {{--  end  including the  Header blade file  --}}
 
-
     <!-- Page Content -->
-
-
-    <!-- page content -->
-    @yield('content')
-
+        @yield('content')
     <!-- /page content -->
 
 
